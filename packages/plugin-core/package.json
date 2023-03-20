@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lce-graph-core",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "for Graph Editor Engine",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -23,5 +23,5 @@
     "@alib/build-scripts": "^0.1.18",
     "build-plugin-component": "^1.10.0"
   },
-  "gitHead": "51ae34f5463cb5128948018ed7c9259a95b5e8c3"
+  "gitHead": "61e1f9f0f6a411524b428f6b8f5e5ec5083a3d77"
 }
