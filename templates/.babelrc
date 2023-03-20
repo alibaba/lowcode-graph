@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "@alife/next",
+        "libraryDirectory": "lib",
+        "style": true,
+        "camel2DashComponentName": true
+      }
+    ]
+  ]
+}

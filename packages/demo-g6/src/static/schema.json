@@ -1,0 +1,40 @@
+{
+  "componentName": "Page",
+  "children": [
+    {
+      "id": "1",
+      "componentName": "DemoNode",
+      "props": {
+        "hidden": true,
+        "collapsed": false,
+        "itemColor": "default",
+        "itemName": "节点标题",
+        "type": "default-shape"
+      },
+      "children": [
+        {
+          "id": "1.1",
+          "componentName": "DemoNode",
+          "props": {
+            "hidden": true,
+            "collapsed": false,
+            "itemColor": "default",
+            "itemName": "节点标题1.1",
+            "type": "default-shape"
+          }
+        },
+        {
+          "id": "1.2",
+          "componentName": "DemoNode",
+          "props": {
+            "hidden": true,
+            "collapsed": false,
+            "itemColor": "default",
+            "itemName": "节点标题1.2",
+            "type": "default-shape"
+          }
+        }
+      ]
+    }
+  ]
+}

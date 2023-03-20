@@ -1,0 +1,11 @@
+{
+  "name": "lce-graph",
+  "assets":{
+    "type":"command",
+    "command":{
+      "cmd": [
+        "sh ./scripts/publish.sh $BUILD_DEST"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.lc-toolbar {
+  .lc-toolbar-left {
+    display: flex;
+    .tool-item {
+      cursor: pointer;
+      width: auto;
+      margin-right: 10px;
+      line-height: 20px;
+    }
+  }
+}
