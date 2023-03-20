@@ -1,0 +1,32 @@
+{
+  "name": "@alilc/lce-graph-demo-g6",
+  "version": "1.0.7-alpha.0",
+  "description": "for Graph Editor Engine",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "private": true,
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "start": "build-scripts start",
+    "test": "jest -c jest.config.js"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@alilc/lowcode-engine": "^1"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.18",
+    "build-plugin-component": "^1.10.0",
+    "build-plugin-fusion": "^0.1.0",
+    "build-plugin-moment-locales": "^0.1.0",
+    "build-plugin-react-app": "^1.7.13",
+    "tsconfig-paths-webpack-plugin": "^3.3.0"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "@alilc/g-react-renderer",
+  "version": "1.0.7-alpha.0",
+  "description": "for Graph Editor Engine",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "test": "jest -c jest.config.js",
+    "build": "build-scripts build --skip-demo",
+    "build:watch": "build-scripts build --skip-demo --watch",
+    "prepublish": "npm run build"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.18",
+    "@ice/spec": "^0.1.1",
+    "@types/ramda": "^0.27.1",
+    "@types/react": "^16.3.0",
+    "@types/react-dom": "^16.3.0",
+    "build-plugin-component": "^1.10.0",
+    "build-plugin-fusion": "^0.1.0",
+    "build-plugin-modular-import": "^0.1.0",
+    "build-plugin-moment-locales": "^0.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.5.0",
+    "eslint": "^6.0.1",
+    "jest-environment-enzyme": "^7.1.2",
+    "lerna": "^5.1.8",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-test-renderer": "^16.8.6"
+  },
+  "dependencies": {
+    "@antv/g-canvas": "^0.5.12",
+    "@antv/util": "^2.0.14",
+    "@react-pdf/font": "^2.0.10",
+    "@react-pdf/layout": "^2.0.15",
+    "@react-pdf/stylesheet": "^2.0.8",
+    "@react-pdf/textkit": "^2.0.5",
+    "@react-pdf/yoga": "^2.0.2",
+    "list-diff2": "^0.1.4",
+    "lodash": "^4.17.21",
+    "ramda": "^0.27.1",
+    "react-reconciler": "^0.26.2",
+    "scheduler": "^0.20.2",
+    "vision-types": "^1.0.4"
+  },
+  "gitHead": "13ed065d67ea23546b712b96b4a3ae61595fc610"
+}

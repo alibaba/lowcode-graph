@@ -1,0 +1,25 @@
+{
+  "name": "@alilc/lce-graph-materials-pane",
+  "version": "1.0.7-alpha.0",
+  "description": "for Graph Editor Engine",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "test": "jest -c jest.config.js",
+    "build": "build-scripts build --skip-demo",
+    "build:watch": "build-scripts build --skip-demo --watch"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.18",
+    "build-plugin-component": "^1.10.0"
+  }
+}
