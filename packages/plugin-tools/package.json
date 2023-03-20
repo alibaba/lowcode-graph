@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lce-graph-tools",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "for Graph Editor Engine",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -27,5 +27,5 @@
     "@antv/g6": "^4.6.4",
     "@antv/x6": "^1.31.4"
   },
-  "gitHead": "c026c99b11e6e231db80d5fe033917d329e0c903"
+  "gitHead": "51ae34f5463cb5128948018ed7c9259a95b5e8c3"
 }
