@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lce-graph-demo-x6",
-  "version": "1.0.7-alpha.0",
+  "version": "1.0.7",
   "description": "for Graph Editor Engine",
   "main": "lib/index.js",
   "module": "es/index.js",

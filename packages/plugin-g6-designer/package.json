@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lce-graph-g6-designer",
-  "version": "1.0.7-alpha.0",
+  "version": "1.0.7",
   "description": "for Graph Editor Engine",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -20,7 +20,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@alilc/lce-graph-tools": "^1.0.7-alpha.0",
+    "@alilc/lce-graph-tools": "1.0.7",
     "@alilc/lowcode-utils": "^1.0.0",
     "@antv/hierarchy": "^0.6.8"
   },
@@ -29,5 +29,5 @@
     "@antv/g6": "^4.6.4",
     "build-plugin-component": "^1.10.0"
   },
-  "gitHead": "13ed065d67ea23546b712b96b4a3ae61595fc610"
+  "gitHead": "3f0b28c0a77723bc759d3451e27706cd697bdeda"
 }
