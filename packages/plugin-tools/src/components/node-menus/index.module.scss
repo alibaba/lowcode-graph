@@ -1,0 +1,49 @@
+.nodeMenus {
+  position: absolute;
+  top: -3000px;
+  left: -3000px;
+  z-index: 11;
+  width: 0;
+  height: 0;
+
+  .container {
+    width: 200px;
+    background-color: #fff;
+    padding: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 0 12px 0 rgba(31, 56, 88, 0.20);
+    position: relative;
+    left: 6px;
+    top: -22px;
+
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 16px;
+      left: -6px;
+      border-right: solid 6px #fff;
+      border-top: solid 6px transparent;
+      border-bottom: solid 6px transparent;
+    }
+
+    .item {
+      line-height: 18px;
+      cursor: pointer;
+      background-color: #fff;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.85);
+      font-family: PingFangSC;
+      padding: 8px 20px;
+
+      &:hover {
+        background-color: rgba(31, 56, 88, 0.06);
+      }
+
+      &.displayNone {
+        display: none;
+      }
+    }
+  }
+}

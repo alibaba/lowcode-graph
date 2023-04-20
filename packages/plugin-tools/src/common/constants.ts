@@ -19,7 +19,10 @@ export enum EditorCommand {
   Unfold = 'unfold',
   insertChildNode = "insertChildNode",
   insertSiblingNode = "insertSiblingNode",
-  removeItem = "removeItem"
+  removeItem = "removeItem",
+  onNodeMenusMouseMove = "onNodeMenusMouseMove",
+  onNodeMenusMouseLeave = "onNodeMenusMouseLeave",
+  onNodeMenusClickMenuItem = "onNodeMenusClickMenuItem",
 }
 
 export enum ItemState {
