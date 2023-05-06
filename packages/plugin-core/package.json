@@ -21,7 +21,8 @@
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
-    "build-plugin-component": "^1.10.0"
+    "build-plugin-component": "^1.10.0",
+    "@alilc/lowcode-plugin-inject": "^1.2.1"
   },
   "gitHead": "7ed863fe077671622a9901f670a9311aa85c3615"
 }

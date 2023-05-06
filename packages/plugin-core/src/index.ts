@@ -1,13 +1,15 @@
 import { AssetLoader } from '@alilc/lowcode-utils';
-import { ILowCodePluginContext, project, material } from '@alilc/lowcode-engine';
+import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject';
 
-const PluginCore = (ctx: ILowCodePluginContext, options: any) => {
+const PluginCore = (ctx: IPublicModelPluginContext, options: any) => {
   return {
     async init() {
-      const { material, project } = ctx;
+      const { material, project, plugins } = ctx;
       const { assets, schema } = options;
+      await plugins.register(Inject);
       // 注册 components，加载所有的 meta js
-      await material.setAssets(assets);
+      await material.setAssets(await injectAssets(assets));
 
       // 加载 schema
       project.openDocument(schema);
