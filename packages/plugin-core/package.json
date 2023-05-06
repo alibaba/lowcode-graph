@@ -19,9 +19,11 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "dependencies": {
+    "@alilc/lowcode-plugin-inject": "^1.2.2"
+  },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
-    "@alilc/lowcode-plugin-inject": "^1.2.1",
     "build-plugin-component": "^1.10.0"
   },
   "gitHead": "7ed863fe077671622a9901f670a9311aa85c3615"
