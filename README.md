@@ -19,3 +19,5 @@ X6: [X6 图编辑引擎]('https://x6.antv.vision/zh')
 
 `npm run start:x6`
 
+### Demo 参考
+https://github.com/alibaba/lowcode-demo
