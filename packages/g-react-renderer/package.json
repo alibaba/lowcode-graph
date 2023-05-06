@@ -1,6 +1,6 @@
 {
   "name": "@alilc/g-react-renderer",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "for Graph Editor Engine",
   "main": "lib/index.js",
   "module": "es/index.js",
