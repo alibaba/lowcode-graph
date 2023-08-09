@@ -1,6 +1,7 @@
 import { Node } from '@antv/x6';
 import { Node as NodeModel } from '@alilc/lowcode-shell';
-import { material } from '@alilc/lowcode-engine';
+import { project, material } from '@alilc/lowcode-engine';
+import { ComponentMetadata } from '@alilc/lowcode-types';
 import { get } from 'lodash';
 
 export const getComponentView = (nodeModel: NodeModel) => {
@@ -59,4 +60,20 @@ export function updateNodeProps(model: NodeModel, node: Node) {
   propList.forEach(item => {
     node.prop(item.name, item.value);
   });
+}
+
+/**
+ * 获取低代码引擎的prototype配置
+ * @param id 
+ */
+export function getNodeModel(id: string) {
+  return project?.currentDocument?.getNodeById(id) as NodeModel;
+}
+
+/**
+ * 获取低代码引擎的prototype配置
+ * @param id 
+ */
+export function getNodeMetaData(id: string) {
+  return project?.currentDocument?.getNodeById(id)?.componentMeta?.getMetadata() as ComponentMetadata|| {};
 }
