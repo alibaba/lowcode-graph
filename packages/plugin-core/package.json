@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lce-graph-core",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "for Graph Editor Engine",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -18,6 +18,9 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@alilc/lowcode-plugin-inject": "^1.2.2"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
