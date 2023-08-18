@@ -1,7 +1,8 @@
 import { ILowCodePluginContext, project } from '@alilc/lowcode-engine';
 import DesignerView from './DesignerView';
 import { rootState } from './items/state';
-import x6Designer, { IDesigner } from './designer';
+import type { IDesigner } from './designer';
+import x6Designer from './designer';
 import '@antv/x6-react-shape'; // 支持自定义 react 组件
 
 /**
