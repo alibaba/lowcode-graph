@@ -1,7 +1,7 @@
 import { Graph, Node } from '@antv/x6';
 import React from 'react';
 import { Node as NodeModel } from '@alilc/lowcode-shell';
-import designer from '../../designer';
+import { x6Designer as designer } from '../../designer';
 import { getComponentView, updateNodeProps } from '../utils';
 
 interface Props {
@@ -45,13 +45,12 @@ class NodeComponent extends React.PureComponent<Props> {
     const onNodeRenderCb = designer.onNodeRender();
 
     // 用户自定义渲染逻辑切面
-    if (this.nodeDefinedType === 'shape' && onNodeRenderCb.length > 0) {
+    if (onNodeRenderCb && onNodeRenderCb.length > 0) {
       for (const cb of onNodeRenderCb) {
         cb(model, this.node);
       }
-    } else {
-      updateNodeProps(model, this.node);
     }
+    updateNodeProps(model, this.node);
 
     // model 更新触发渲染
     project.currentDocument?.onChangeNodeProp(({ key, oldValue, newValue, node }) => {
@@ -65,13 +64,12 @@ class NodeComponent extends React.PureComponent<Props> {
       }
 
       // 用户自定义渲染逻辑切面
-      if (this.nodeDefinedType === 'shape' && onNodeRenderCb.length > 0) {
+      if (onNodeRenderCb && onNodeRenderCb.length > 0) {
         for (const cb of onNodeRenderCb) {
           cb(model, this.node);
         }
-      } else {
-        this.node.prop(key, newValue);
-      }
+      } 
+      this.node.prop(key, newValue);
     });
   }
 

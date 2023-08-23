@@ -17,42 +17,6 @@
       }
     },
     {
-      "id": "test-node",
-      "componentName": "TestNode",
-      "title": "测试节点",
-      "props": {
-        "name": "测试节点",
-        "position": {
-          "x": 22,
-          "y": 71
-        }
-      }
-    },
-    {
-      "id": "test-node-parent",
-      "componentName": "TestNodeParent",
-      "title": "测试节点父节点",
-      "props": {
-        "name": "测试节点父节点",
-        "position": {
-          "x": 22,
-          "y": 131
-        }
-      }
-    },
-    {
-      "id": "node-start-child",
-      "componentName": "StartEnd",
-      "title": "开始节点子节点",
-      "props": {
-        "name": "开始节点子节点",
-        "position": {
-          "x": 232,
-          "y": 71
-        }
-      }
-    },
-    {
       "id": "node_ockn610kx9m",
       "componentName": "SendEmail",
       "title": "发送邮件",

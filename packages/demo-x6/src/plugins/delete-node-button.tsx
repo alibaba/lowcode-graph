@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { hotkey, project, Node } from '@alilc/lowcode-engine';
 import { isFormEvent } from '@alilc/lowcode-utils';
-import { IDesigner } from '@alilc/lce-graph-x6-designer';
+import type { IDesigner } from '@alilc/lce-graph-x6-designer';
 
 interface IProps {
   x6Designer: IDesigner

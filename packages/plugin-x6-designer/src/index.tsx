@@ -2,7 +2,7 @@ import { ILowCodePluginContext, project } from '@alilc/lowcode-engine';
 import DesignerView from './DesignerView';
 import { rootState } from './items/state';
 import type { IDesigner } from './designer';
-import x6Designer from './designer';
+import { x6Designer } from './designer';
 import '@antv/x6-react-shape'; // 支持自定义 react 组件
 
 /**
@@ -44,5 +44,5 @@ const PluginX6Designer = (ctx: ILowCodePluginContext) => {
 }
 
 PluginX6Designer.pluginName = 'plugin-x6-designer';
-export default PluginX6Designer;
-export { IDesigner };
+export  { PluginX6Designer };
+export type { IDesigner };

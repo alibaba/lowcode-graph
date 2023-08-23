@@ -1,5 +1,5 @@
 import { ILowCodePluginContext, skeleton } from '@alilc/lowcode-engine';
-import { IDesigner } from '@alilc/lce-graph-x6-designer';
+import type { IDesigner } from '@alilc/lce-graph-x6-designer';
 import * as React from 'react';
 import { Graph, Markup } from '@antv/x6';
 import ReactDOM from 'react-dom';

@@ -1,35 +1,11 @@
 import { Graph, Shape } from '@antv/x6';
 import { project, Node as Model } from '@alilc/lowcode-engine';
-import x6Designer from '../designer';
+import { x6Designer } from '../designer';
 import { getNodeMetaData } from '../items/utils'
 
-export function initGraph(container: HTMLElement) {
+export function initGraph(container: HTMLElement, graphConfig: any = {}) {
   //@ts-ignore
   const graph = window._X6Graph = new Graph({
-    container,
-    // async: true, // 异步加载画布
-    grid: {
-      // 网格
-      size: 10,
-      visible: true,
-      type: 'dot', // 'dot' | 'fixedDot' | 'mesh'
-      args: {
-        color: '#919BAE', // 网格线/点颜色
-        thickness: 1, // 网格线宽度/网格点大小
-      },
-    },
-    panning: {
-      enabled: true,
-      eventTypes: ['mouseWheel']
-    },
-    clipboard: false,
-    snapline: true, // 对齐线
-    // https://github.com/antvis/X6/pull/2342 多选移动会和 sanpline 计算冲突，x6 bug 暂时不支持多选移动
-    selecting: {
-      enabled: true,
-      rubberband: true,
-      modifiers: ['shift'],
-    },
     translating: {
       restrict(view) {
         const node = view.cell;
@@ -144,12 +120,37 @@ export function initGraph(container: HTMLElement) {
         return false;
       },
     },
+    ...graphConfig,
     onEdgeLabelRendered(args) {
       const onEdgeLabelRenderCb = x6Designer.onEdgeLabelRender();
       for (const cb of onEdgeLabelRenderCb) {
         cb(args);
       }
-    }
+    },
+    container,
+    // async: true, // 异步加载画布
+    grid: {
+      // 网格
+      size: 10,
+      visible: true,
+      type: 'dot', // 'dot' | 'fixedDot' | 'mesh'
+      args: {
+        color: '#919BAE', // 网格线/点颜色
+        thickness: 1, // 网格线宽度/网格点大小
+      },
+    },
+    panning: {
+      enabled: true,
+      eventTypes: ['mouseWheel']
+    },
+    clipboard: false,
+    snapline: true, // 对齐线
+    // https://github.com/antvis/X6/pull/2342 多选移动会和 sanpline 计算冲突，x6 bug 暂时不支持多选移动
+    selecting: {
+      enabled: true,
+      rubberband: true,
+      modifiers: ['shift'],
+    },
   });
 
   // 适应画布

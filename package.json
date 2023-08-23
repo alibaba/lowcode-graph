@@ -48,5 +48,6 @@
   },
   "publishConfig": {
     "registry": "https://registry.antfin-inc.com"
-  }
+  },
+  "repository": "git@github.com:alibaba/lowcode-graph.git"
 }

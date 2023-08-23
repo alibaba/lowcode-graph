@@ -3,7 +3,7 @@ import { Node, Edge, Graph } from '@antv/x6';
 import { EditorCommand, CommandManager, ICommandCb } from '@alilc/lce-graph-tools';
 import { zoomIn, zoomOut, removeItem, undo, redo } from './builtin-commands';
 
-export interface IDesigner {
+interface IDesigner {
   onNodeRender: (cb: (model: NodeModel, node: Node) => void) => any[];
   onEdgeRender: (cb: (model: NodeModel, edge: Edge) => void) => any[];
   onEdgeLabelRender: (cb: (args: Graph.Hook.OnEdgeLabelRenderedArgs) => void) => any[];
@@ -67,4 +67,5 @@ class Designer implements IDesigner {
 }
 
 const x6Designer = new Designer();
-export default x6Designer;
+export { x6Designer };
+export type { IDesigner };
