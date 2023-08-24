@@ -29,6 +29,6 @@
     "@antv/x6": "^1.31.4",
     "build-plugin-component": "^1.10.0"
   },
-  "gitHead": "7ed863fe077671622a9901f670a9311aa85c3615",
+  "gitHead": "8eaa073c43c2b2fc220ce2729f705e7955098812",
   "repository": "git@github.com:alibaba/lowcode-graph.git"
 }
