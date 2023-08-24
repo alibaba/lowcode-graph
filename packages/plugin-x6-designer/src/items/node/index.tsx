@@ -50,7 +50,9 @@ class NodeComponent extends React.PureComponent<Props> {
         cb(model, this.node);
       }
     }
-    updateNodeProps(model, this.node);
+    if (this.nodeDefinedType === 'component') {
+      updateNodeProps(model, this.node);
+    }
 
     // model 更新触发渲染
     project.currentDocument?.onChangeNodeProp(({ key, oldValue, newValue, node }) => {
@@ -68,8 +70,10 @@ class NodeComponent extends React.PureComponent<Props> {
         for (const cb of onNodeRenderCb) {
           cb(model, this.node);
         }
-      } 
-      this.node.prop(key, newValue);
+      }
+      if (this.nodeDefinedType === 'component') {
+        this.node.prop(key, newValue);
+      }
     });
   }
 
