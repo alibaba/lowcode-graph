@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lce-graph-x6-designer",
-  "version": "1.0.13-alpha.6",
+  "version": "1.0.13-alpha.8",
   "description": "for Graph Editor Engine",
   "main": "lib/index.js",
   "module": "es/index.js",
