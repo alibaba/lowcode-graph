@@ -2,7 +2,7 @@ import { Graph, Edge } from '@antv/x6';
 import React from 'react';
 import { Node as NodeModel } from '@alilc/lowcode-shell';
 import { getComponentView, updateNodeProps } from '../utils';
-import designer from '../../designer';
+import { x6Designer as designer } from '../../designer';
 
 interface Props {
   onMountEdge: (edge: Edge) => void;
