@@ -24,7 +24,6 @@ function pluginX6DesignerExtension(ctx: ILowCodePluginContext) {
       x6Designer.onEdgeRender((model, edge) => {
         // @ts-ignore
         const { source, target, sourcePortId, targetPortId } = model.propsData;
-        console.log(sourcePortId, targetPortId);
         requestAnimationFrame(() => {
           edge.setSource({ cell: source, port: sourcePortId });
           edge.setTarget({ cell: target, port: targetPortId });
