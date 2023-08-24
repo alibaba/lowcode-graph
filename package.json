@@ -47,7 +47,7 @@
     "lockfile": "enable"
   },
   "publishConfig": {
-    "registry": "https://registry.antfin-inc.com"
+    "registry": "https://registry.anpm.alibaba-inc.com"
   },
   "repository": "git@github.com:alibaba/lowcode-graph.git"
 }
