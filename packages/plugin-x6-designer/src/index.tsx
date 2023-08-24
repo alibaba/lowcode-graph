@@ -10,7 +10,7 @@ import '@antv/x6-react-shape'; // 支持自定义 react 组件
  * @param ctx 
  * @returns 
  */
-const PluginX6Designer = (ctx: ILowCodePluginContext) => {
+const PluginX6Designer = (ctx: ILowCodePluginContext, options:any = {}) => {
   return {
     exports() {
       return x6Designer;
@@ -26,7 +26,7 @@ const PluginX6Designer = (ctx: ILowCodePluginContext) => {
         area: 'mainArea',
         name: 'designer',
         type: 'Widget',
-        content: DesignerView,
+        content: <DesignerView editor={ctx.editor} ctx={ctx} graphConfig={options.graphConfig || {}}/>,
         contentProps: {
           ctx,
         }

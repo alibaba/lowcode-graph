@@ -28,60 +28,6 @@ export function initGraph(container: HTMLElement, graphConfig: any = {}) {
       rubberband: true,
       modifiers: ['shift'],
     },
-    translating: {
-      restrict(view) {
-        const node = view.cell;
-        if (node.isNode() ) {
-          const nodeRestrictProp = node?.store?.data?.data?.restrict;
-          if (typeof nodeRestrictProp === 'function') {
-            return nodeRestrictProp();
-          } else if (!!nodeRestrictProp) {
-            const parent = node.getParent();
-            if (parent) {
-              return parent.getBBox();
-            }
-          } else {
-            return null;
-          }
-        } else {
-          return null;
-        }
-      }
-    },
-    embedding: {
-      enabled: true,
-      frontOnly: true,
-      validate({ child, parent }) {
-        const parentNodeModel = getNodeMetaData(parent.id);
-        const validateChildNode = parentNodeModel?.configure?.component?.nestingRule?.childWhitelist;
-        const childNodeModel = getNodeMetaData(child.id);
-        const validateParentNode = childNodeModel?.configure?.component?.nestingRule?.parentWhitelist;
-        let isParent = false;
-        let isChild = false;
-        if ((typeof validateChildNode === 'function' && validateChildNode(child)) || typeof validateChildNode === 'object' && validateChildNode.includes(childNodeModel.componentName)) {
-          isChild = true;
-        } 
-        if ((typeof validateParentNode === 'function' && validateParentNode(child)) || typeof validateParentNode === 'object' && validateParentNode.includes(parentNodeModel.componentName)) {
-          isParent = true;
-        }
-        if (parentNodeModel?.configure?.component?.isContainer && isParent && isChild){
-          return true;
-        } else {
-          return false;
-        }
-      }
-    },
-    highlighting: {
-      embedding: {
-        name: 'stroke',
-        args: {
-          padding: -1,
-          attrs: {
-            stroke: '#73d13d',
-          },
-        },
-      },
-    },
     connecting: {
       snap: {
         radius: 40, // 吸附阈值
