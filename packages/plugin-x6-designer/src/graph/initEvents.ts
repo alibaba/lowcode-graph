@@ -12,7 +12,7 @@ export const ErrorColor = '#ff5219'; // 红框错误
 // 初始化画布事件
 export function initEvents(graph: Graph) {
   graph.on('cell:click', ({ e, x, y, cell, view }) => {
-    console.log('position:', x, y);
+    // console.log('position:', x, y);
   });
 
   graph.on('node:moved', ({ e, x, y, node, view }) => {

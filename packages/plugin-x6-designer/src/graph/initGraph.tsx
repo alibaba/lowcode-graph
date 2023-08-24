@@ -33,7 +33,6 @@ export function initGraph(container: HTMLElement, graphConfig: any = {}) {
         const node = view.cell;
         if (node.isNode() ) {
           const nodeRestrictProp = node?.store?.data?.data?.restrict;
-          console.log('nodeRestrictProp', nodeRestrictProp);
           if (typeof nodeRestrictProp === 'function') {
             return nodeRestrictProp();
           } else if (!!nodeRestrictProp) {
@@ -65,7 +64,6 @@ export function initGraph(container: HTMLElement, graphConfig: any = {}) {
         if ((typeof validateParentNode === 'function' && validateParentNode(child)) || typeof validateParentNode === 'object' && validateParentNode.includes(parentNodeModel.componentName)) {
           isParent = true;
         }
-        console.log('isParent', isParent, isChild, parentNodeModel);
         if (parentNodeModel?.configure?.component?.isContainer && isParent && isChild){
           return true;
         } else {
@@ -117,7 +115,6 @@ export function initGraph(container: HTMLElement, graphConfig: any = {}) {
       validateEdge({ edge }) {
         const doc = project.currentDocument!;
         const contentEdge = doc.getNodeById(edge.id);
-        console.log(edge.getSourceCellId(), edge.getTargetCellId());
         if (!contentEdge) {
           const node = doc.createNode({
             componentName: 'Line',
