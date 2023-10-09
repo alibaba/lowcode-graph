@@ -5,7 +5,7 @@ import { getNodeMetaData } from '../items/utils'
 
 export function initGraph(container: HTMLElement, graphConfig: any = {}) {
   //@ts-ignore
-  const graph = window._X6Graph = new Graph({
+  const graph = new Graph({
     grid: {
       // 网格
       size: 10,
