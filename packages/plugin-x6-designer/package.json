@@ -22,8 +22,7 @@
   "dependencies": {
     "@alilc/lce-graph-tools": "1.0.12",
     "@alilc/lowcode-utils": "^1.0.0",
-    "@antv/x6": "^2.13.1",
-    "@antv/x6-react-shape": "^2.2.2"
+    "@antv/x6-react-shape": "^1.6.1"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
