@@ -4,7 +4,6 @@ import { Editor } from '@alilc/lowcode-editor-core';
 import { initGraph } from "./graph/initGraph";
 import Nodes from "./items";
 import { render } from "react-dom";
-import { Graph } from '@antv/x6';
 import { registerShape } from "./graph/registerShape";
 import { initEvents } from "./graph/initEvents";
 import { x6Designer } from './designer';
@@ -18,7 +17,6 @@ interface IProps {
 export default class DesignerView extends PureComponent<IProps> {
   private container: HTMLDivElement;
   private nodesContainer: HTMLDivElement;
-  public x6Graph: Graph;
 
   refContainer = (container: HTMLDivElement) => {
     this.container = container;
@@ -40,7 +38,7 @@ export default class DesignerView extends PureComponent<IProps> {
       // add nodes & edges
       render(
         createElement(Nodes, {
-          graph: this.x6Graph,
+          graph,
           ctx: this.props.ctx,
         }),
         this.nodesContainer

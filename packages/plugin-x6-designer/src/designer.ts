@@ -57,10 +57,6 @@ class Designer implements IDesigner {
     this.commandManager.init(ctx, graph);
   }
 
-  public setGraph(graph: Graph) {
-    this.graph = graph;
-  }
-
   public getGraph(): Graph {
     return this.graph;
   }

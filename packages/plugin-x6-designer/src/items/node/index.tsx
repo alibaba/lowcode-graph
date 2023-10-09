@@ -44,7 +44,6 @@ class NodeComponent extends React.PureComponent<Props> {
     // 加载自定义节点渲染逻辑
     const onNodeRenderCb = designer.onNodeRender();
 
-    debugger
     // 用户自定义渲染逻辑切面
     if (onNodeRenderCb && onNodeRenderCb.length > 0) {
       for (const cb of onNodeRenderCb) {
@@ -57,7 +56,6 @@ class NodeComponent extends React.PureComponent<Props> {
 
     // model 更新触发渲染
     project.currentDocument?.onChangeNodeProp(({ key, oldValue, newValue, node }) => {
-      debugger
       if (node.id !== model.id) {
         return;
       }
