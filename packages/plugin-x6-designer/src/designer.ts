@@ -53,11 +53,13 @@ class Designer implements IDesigner {
   }
 
   init(ctx: any, graph: Graph) {
+    console.log('initGraph', graph);
     this.graph = graph;
     this.commandManager.init(ctx, graph);
   }
 
-  public getGraph(): Graph {
+  public getGraph =  (): Graph => {
+    console.log('getGraph', this.graph);
     return this.graph;
   }
 

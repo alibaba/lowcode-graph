@@ -13,7 +13,10 @@ import '@antv/x6-react-shape'; // 支持自定义 react 组件
 const PluginX6Designer = (ctx: ILowCodePluginContext, options:any = {}) => {
   return {
     exports() {
-      return x6Designer;
+      return {
+        desginer: x6Designer,
+        getGraph: x6Designer.getGraph
+      }
     },
     init() {
       const { skeleton, project } = ctx;
