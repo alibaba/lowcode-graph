@@ -12,7 +12,7 @@ function pluginX6DesignerExtension(ctx: ILowCodePluginContext) {
   return {
     init() {
       // 获取 x6 designer 内置插件的导出 api
-      const x6Designer = ctx.plugins['plugin-x6-designer'].designer as IDesigner;
+      const x6Designer = ctx.plugins['plugin-x6-designer'] as IDesigner;
 
       x6Designer.onNodeRender((model, node) => {
         // @ts-ignore

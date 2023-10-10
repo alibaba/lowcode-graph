@@ -15,7 +15,7 @@ const PluginX6Designer = (ctx: ILowCodePluginContext, options:any = {}) => {
     exports() {
       return {
         designer: x6Designer,
-        getGraph: x6Designer.getGraph
+        graph: x6Designer.getGraph()
       }
     },
     init() {
