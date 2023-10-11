@@ -14,6 +14,14 @@ export function initEvents(graph: Graph) {
     console.log('position:', x, y);
   });
 
+  // 增加 node:added 事件，将 ports 数据更新到 schema 中，便于保存
+  graph.on('node:added',({ node, index, options }) => {
+    const nodeModel = project.currentDocument?.getNodeById(node.id) as Model;
+    if (nodeModel) {
+      nodeModel.setPropValue('ports', node.getPorts());
+    }
+  });
+
   graph.on('node:moved', ({ e, x, y, node, view }) => {
     const nodeModel = project.currentDocument?.getNodeById(node.id) as Model;
     if (nodeModel) {
