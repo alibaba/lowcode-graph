@@ -3,11 +3,15 @@ import { observer } from 'mobx-react';
 import NodeComponent from './node';
 import EdgeComponent from './edge';
 import { Node, Edge, Graph } from '@antv/x6';
-import { EdgeComponentName, rootState, RootState } from "./state";
+import { RootState } from "./state";
+import { Designer } from '../designer';
 import './index.less';
 
 interface Props {
   graph: Graph;
+  designer: Designer;
+  ctx: any,
+  rootState: RootState;
 }
 
 /**
@@ -65,7 +69,7 @@ class Nodes extends React.PureComponent<Props> {
   }
 
   render() {
-    const { graph } = this.props;
+    const { graph, designer, rootState, ctx } = this.props;
     const nodes = rootState.getNodes();
     const items = nodes.filter(v => typeof v.isPage === 'function' ? !v.isPage() : !v.isPage);
     return (
@@ -80,7 +84,8 @@ class Nodes extends React.PureComponent<Props> {
                   onUnMountEdge={this.onUnMountEdge}
                   model={node}
                   graph={graph}
-                  ctx={this.props.ctx}
+                  ctx={ctx}
+                  designer={designer}
                 />
               )
             } else {
@@ -91,7 +96,8 @@ class Nodes extends React.PureComponent<Props> {
                   onUnMountNode={this.onUnMountNode}
                   model={node}
                   graph={graph}
-                  ctx={this.props.ctx}
+                  ctx={ctx}
+                  designer={designer}
                 />)
             }
           })

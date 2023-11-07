@@ -1,9 +1,9 @@
 import { Graph, Shape } from '@antv/x6';
 import { project, Node as Model } from '@alilc/lowcode-engine';
-import { x6Designer } from '../designer';
-import { getNodeMetaData } from '../items/utils'
+import { common } from '@alilc/lowcode-engine';
+import { IPublicEnumTransitionType } from '@alilc/lowcode-types';
 
-export function initGraph(container: HTMLElement, graphConfig: any = {}) {
+export function initGraph(container: HTMLElement, graphConfig: any = {}, designer: any) {
   //@ts-ignore
   const graph = new Graph({
     grid: {
@@ -76,10 +76,12 @@ export function initGraph(container: HTMLElement, graphConfig: any = {}) {
           const rootNode = project.currentDocument?.root;
           project.currentDocument?.insertNode(rootNode!, node);
         } else {
-          contentEdge.setPropValue('source', edge.getSourceCellId());
-          contentEdge.setPropValue('target', edge.getTargetCellId());
-          contentEdge.setPropValue('sourcePortId', edge.getSourcePortId());
-          contentEdge.setPropValue('targetPortId', edge.getTargetPortId());
+          common.utils.executeTransaction(() => {
+            contentEdge.setPropValue('source', edge.getSourceCellId());
+            contentEdge.setPropValue('target', edge.getTargetCellId());
+            contentEdge.setPropValue('sourcePortId', edge.getSourcePortId());
+            contentEdge.setPropValue('targetPortId', edge.getTargetPortId());
+          }, IPublicEnumTransitionType.REPAINT);
         }
 
         return false;
@@ -87,7 +89,7 @@ export function initGraph(container: HTMLElement, graphConfig: any = {}) {
     },
     ...graphConfig,
     onEdgeLabelRendered(args) {
-      const onEdgeLabelRenderCb = x6Designer.onEdgeLabelRender();
+      const onEdgeLabelRenderCb = designer.onEdgeLabelRender();
       for (const cb of onEdgeLabelRenderCb) {
         cb(args);
       }

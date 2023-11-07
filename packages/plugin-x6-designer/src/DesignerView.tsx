@@ -6,12 +6,15 @@ import Nodes from "./items";
 import { render } from "react-dom";
 import { registerShape } from "./graph/registerShape";
 import { initEvents } from "./graph/initEvents";
-import { x6Designer } from './designer';
+import { Designer } from './designer';
+import { RootState } from "./items/state";
 
 interface IProps {
   editor: Editor;
   ctx: ILowCodePluginContext;
   graphConfig?: any;
+  designer?: Designer;
+  rootState?: RootState
 }
 
 export default class DesignerView extends PureComponent<IProps> {
@@ -28,11 +31,12 @@ export default class DesignerView extends PureComponent<IProps> {
 
   componentDidMount() {
     registerShape();
-
+    const designer = this.props.designer as Designer;
+    const rootState = this.props.rootState as RootState;
     // @ts-ignore
-    const graph = initGraph(this.container, this.props.graphConfig);
+    const graph = initGraph(this.container, this.props.graphConfig, this.props.designer);
     if (graph) {
-      x6Designer.init(this.props.ctx, graph);
+      designer.init(this.props.ctx, graph);
       initEvents(graph);
 
       // add nodes & edges
@@ -40,6 +44,8 @@ export default class DesignerView extends PureComponent<IProps> {
         createElement(Nodes, {
           graph,
           ctx: this.props.ctx,
+          designer,
+          rootState
         }),
         this.nodesContainer
       );

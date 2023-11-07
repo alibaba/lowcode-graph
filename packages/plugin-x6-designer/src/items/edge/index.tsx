@@ -2,7 +2,7 @@ import { Graph, Edge } from '@antv/x6';
 import React from 'react';
 import { Node as NodeModel } from '@alilc/lowcode-shell';
 import { getComponentView, updateNodeProps } from '../utils';
-import { x6Designer as designer } from '../../designer';
+import { Designer } from '../../designer';
 
 interface Props {
   onMountEdge: (edge: Edge) => void;
@@ -11,6 +11,7 @@ interface Props {
   graph: Graph;
   model: NodeModel;
   ctx: any;
+  designer: Designer;
 }
 
 /**
@@ -20,7 +21,7 @@ class EdgeComponent extends React.PureComponent<Props> {
   private edge: Edge;
 
   componentDidMount() {
-    const { model, graph, ctx } = this.props;
+    const { model, graph, ctx, designer } = this.props;
     const { project } = ctx;
 
     // 创建 edge

@@ -53,13 +53,11 @@ class Designer implements IDesigner {
   }
 
   init(ctx: any, graph: Graph) {
-    console.log('initGraph', graph);
     this.graph = graph;
     this.commandManager.init(ctx, graph);
   }
 
-  public getGraph =  (): Graph => {
-    console.log('getGraph', this.graph);
+  public getGraph = (): Graph => {
     return this.graph;
   }
 
@@ -68,6 +66,5 @@ class Designer implements IDesigner {
   }
 }
 
-const x6Designer = new Designer();
-export { x6Designer };
+export { Designer };
 export type { IDesigner };

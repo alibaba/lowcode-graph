@@ -50,5 +50,3 @@ export class RootState {
     }
   }
 }
-
-export const rootState = new RootState();

@@ -1,16 +1,19 @@
 import { Graph, Node } from '@antv/x6';
 import React from 'react';
 import { Node as NodeModel } from '@alilc/lowcode-shell';
-import { x6Designer as designer } from '../../designer';
+import { Designer } from '../../designer';
 import { getComponentView, updateNodeProps } from '../utils';
+import { common } from '@alilc/lowcode-engine';
+import { IPublicEnumTransitionType } from '@alilc/lowcode-types';
 
 interface Props {
   onMountNode: (node: Node) => void;
   onUnMountNode: (node: Node) => void;
 
-  graph: typeof Graph;
+  graph: Graph;
   model: NodeModel;
   ctx: any;
+  designer: Designer;
 }
 
 
@@ -42,7 +45,7 @@ class NodeComponent extends React.PureComponent<Props> {
     // 定位
     this.node.setPosition(position);
     // 加载自定义节点渲染逻辑
-    const onNodeRenderCb = designer.onNodeRender();
+    const onNodeRenderCb = this.props.designer.onNodeRender();
 
     // 用户自定义渲染逻辑切面
     if (onNodeRenderCb && onNodeRenderCb.length > 0) {
@@ -51,7 +54,9 @@ class NodeComponent extends React.PureComponent<Props> {
       }
     }
     if (this.nodeDefinedType === 'component') {
-      updateNodeProps(model, this.node);
+      common.utils.executeTransaction(() => {
+        updateNodeProps(model, this.node);
+      }, IPublicEnumTransitionType.REPAINT);
     }
 
     // model 更新触发渲染

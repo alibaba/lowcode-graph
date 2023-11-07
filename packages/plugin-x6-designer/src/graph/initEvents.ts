@@ -1,4 +1,3 @@
-import { rootState } from '../items/state';
 import { project, Node as Model } from '@alilc/lowcode-engine';
 import { FunctionExt, Graph, Node, Point, EdgeView, Edge, Cell } from '@antv/x6';
 import { showPorts } from './util';

@@ -1,8 +1,8 @@
 import { ILowCodePluginContext, project } from '@alilc/lowcode-engine';
 import DesignerView from './DesignerView';
-import { rootState } from './items/state';
+import { RootState } from './items/state';
 import type { IDesigner } from './designer';
-import { x6Designer } from './designer';
+import { Designer } from './designer';
 import '@antv/x6-react-shape'; // 支持自定义 react 组件
 
 /**
@@ -11,12 +11,12 @@ import '@antv/x6-react-shape'; // 支持自定义 react 组件
  * @returns 
  */
 const PluginX6Designer = (ctx: ILowCodePluginContext, options:any = {}) => {
+  const x6Designer = new Designer();
+  const rootState = new RootState();
+
   return {
     exports() {
-      return {
-        designer: x6Designer,
-        graph: x6Designer.getGraph()
-      }
+      return x6Designer;
     },
     init() {
       const { skeleton, project } = ctx;
@@ -29,14 +29,17 @@ const PluginX6Designer = (ctx: ILowCodePluginContext, options:any = {}) => {
         area: 'mainArea',
         name: 'designer',
         type: 'Widget',
-        content: <DesignerView editor={ctx.editor} ctx={ctx} graphConfig={options.graphConfig || {}}/>,
+        content: <DesignerView editor={ctx.editor} ctx={ctx} graphConfig={options.graphConfig || {}} designer={x6Designer} rootState={rootState}/>,
         contentProps: {
           ctx,
         }
       });
 
+      console.log('[PluginInit]ctx', ctx);
       // bind nodes state
       rootState.bindNodes(project.currentDocument);
+
+      console.log('[PluginInit]windowId', ctx.workspace.window.id, );
 
       project.onChangeDocument((doc) => {
         rootState.disposeDocumentEvent();
@@ -46,6 +49,6 @@ const PluginX6Designer = (ctx: ILowCodePluginContext, options:any = {}) => {
   }
 }
 
-PluginX6Designer.pluginName = 'plugin-x6-designer';
+PluginX6Designer.pluginName = `plugin-x6-designer`;
 export  { PluginX6Designer };
 export type { IDesigner };
