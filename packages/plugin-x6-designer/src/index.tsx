@@ -12,7 +12,7 @@ import '@antv/x6-react-shape'; // 支持自定义 react 组件
  */
 const PluginX6Designer = (ctx: ILowCodePluginContext, options:any = {}) => {
   const x6Designer = new Designer();
-  const rootState = new RootState();
+  const rootState = new RootState();  // const ctx = propCtx?.workspace?.window?.editorViews?.[1] || propCtx;
 
   return {
     exports() {
@@ -34,12 +34,8 @@ const PluginX6Designer = (ctx: ILowCodePluginContext, options:any = {}) => {
           ctx,
         }
       });
-
-      console.log('[PluginInit]ctx', ctx);
       // bind nodes state
       rootState.bindNodes(project.currentDocument);
-
-      console.log('[PluginInit]windowId', ctx.workspace.window.id, );
 
       project.onChangeDocument((doc) => {
         rootState.disposeDocumentEvent();
