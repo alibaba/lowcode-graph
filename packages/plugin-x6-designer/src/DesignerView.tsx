@@ -33,12 +33,13 @@ export default class DesignerView extends PureComponent<IProps> {
     registerShape();
     const designer = this.props.designer as Designer;
     const rootState = this.props.rootState as RootState;
+    rootState.setDesigner(designer);
     // @ts-ignore
     const graph = initGraph(this.container, this.props.graphConfig, this.props.designer);
     if (graph) {
       designer.init(this.props.ctx, graph);
       initEvents(graph);
-
+      rootState.setGraph(graph);
       // add nodes & edges
       render(
         createElement(Nodes, {

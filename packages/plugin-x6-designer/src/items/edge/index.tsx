@@ -48,26 +48,6 @@ class EdgeComponent extends React.PureComponent<Props> {
     for (const cb of onEdgeRender) {
       cb(model, this.edge);
     }
-
-    // model 更新渲染
-    project.currentDocument?.onChangeNodeProp(({ key, oldValue, newValue, node }) => {
-      if (node.id !== model.id) {
-        return;
-      }
-
-      if (key === 'source') {
-        this.edge.setSource({ cell: newValue });
-      }
-
-      if (key === 'target') {
-        this.edge.setTarget({ cell: newValue });
-      }
-
-      // 用户自定义渲染逻辑切面
-      for (const cb of onEdgeRender) {
-        cb(model, this.edge);
-      }
-    });
   }
 
   componentWillUnmount() {

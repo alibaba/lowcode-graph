@@ -59,27 +59,6 @@ class NodeComponent extends React.PureComponent<Props> {
       }, IPublicEnumTransitionType.REPAINT);
     }
 
-    // model 更新触发渲染
-    project.currentDocument?.onChangeNodeProp(({ key, oldValue, newValue, node }) => {
-      if (node.id !== model.id) {
-        return;
-      }
-
-      if (key === 'position') {
-        this.node.setPosition(newValue);
-        return;
-      }
-
-      // 用户自定义渲染逻辑切面
-      if (onNodeRenderCb && onNodeRenderCb.length > 0) {
-        for (const cb of onNodeRenderCb) {
-          cb(model, this.node);
-        }
-      }
-      if (this.nodeDefinedType === 'component') {
-        this.node.prop(key, newValue);
-      }
-    });
   }
 
   componentWillUnmount() {

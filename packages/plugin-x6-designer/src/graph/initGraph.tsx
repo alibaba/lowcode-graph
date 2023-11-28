@@ -76,12 +76,11 @@ export function initGraph(container: HTMLElement, graphConfig: any = {}, designe
           const rootNode = project.currentDocument?.root;
           project.currentDocument?.insertNode(rootNode!, node);
         } else {
-          common.utils.executeTransaction(() => {
-            contentEdge.setPropValue('source', edge.getSourceCellId());
-            contentEdge.setPropValue('target', edge.getTargetCellId());
-            contentEdge.setPropValue('sourcePortId', edge.getSourcePortId());
-            contentEdge.setPropValue('targetPortId', edge.getTargetPortId());
-          }, IPublicEnumTransitionType.REPAINT);
+          // 业务逻辑
+          contentEdge.setPropValue('source', edge.getSourceCellId());
+          contentEdge.setPropValue('target', edge.getTargetCellId());
+          contentEdge.setPropValue('sourcePortId', edge.getSourcePortId());
+          contentEdge.setPropValue('targetPortId', edge.getTargetPortId());
         }
 
         return false;

@@ -1,5 +1,6 @@
 import { Node as NodeModel } from '@alilc/lowcode-shell';
 import { Node, Edge, Graph } from '@antv/x6';
+import { RootState } from "./items/state";
 import { EditorCommand, CommandManager, ICommandCb } from '@alilc/lce-graph-tools';
 import { zoomIn, zoomOut, removeItem, undo, redo } from './builtin-commands';
 
@@ -28,6 +29,7 @@ class Designer implements IDesigner {
   public onEdgeRenderCb: Array<(model: NodeModel, edge: Edge) => void> = [];
   public onEdgeLabelRenderCb: Array<(args: Graph.Hook.OnEdgeLabelRenderedArgs) => void> = [];
   public graph: Graph;
+  public render: RootState;
 
   // node model data => graph node render
   public onNodeRender = (cb?: (model: NodeModel, node: Node) => void) => {
